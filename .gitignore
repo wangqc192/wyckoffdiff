@@ -1,0 +1,6 @@
+.idea/
+wyckoff_gen.egg-info
+*__pycache__
+checkpoints/
+logs/
+data/*/processed
