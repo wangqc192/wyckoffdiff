@@ -208,6 +208,7 @@ class WyckoffDataset(InMemoryDataset):
         pre_filter=None,
         debug=False,
     ):
+        self.base_url = f"https://public.openmaterialsdb.se/wyckoffdiff/data/{self.suffix}/raw/"  # splits for WyckoffDiff paper. Overwrite if using own hosting
         self.debug = debug
         self.split = split
         self.num_elements = num_elements
@@ -222,10 +223,9 @@ class WyckoffDataset(InMemoryDataset):
             return [f"wyckoff_data_{self.suffix}_debug.pt"]
         return [f"wyckoff_data_{self.suffix}_{self.split}.pt"]
 
-    # def download(self):
-    #     # Download to `self.raw_dir`.
-    #     download_url(url, self.raw_dir)
-    #     ...
+    def download(self):
+        url = self.base_url + self.raw_file_names[0]
+        download_url(url, self.raw_dir)
 
     def wyckoff_data_to_graph(self, data_row: pd.Series) -> Data:
 
