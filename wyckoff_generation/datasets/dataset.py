@@ -1,3 +1,5 @@
+import bz2
+import hashlib
 import os
 import os.path as osp
 import sys
@@ -197,6 +199,42 @@ def preprocess(raw_file_path) -> pd.DataFrame:
     return parsed_aflow_labels
 
 
+def compare_hash(data_path, correct_hash):
+    sha256_hash = hashlib.sha256()
+    with open(data_path, "rb") as f:
+        for byte_block in iter(lambda: f.read(4096), b""):
+            sha256_hash.update(byte_block)
+    return sha256_hash.hexdigest() == correct_hash
+
+
+def decompress_bz2_file(
+    compressed_file_path, remove_original=False, decompressed_file_path=None
+):
+    # Get the file name without the .bz2 extension
+    if decompressed_file_path is None:
+        if compressed_file_path.endswith(".bz2"):
+            decompressed_file_path = compressed_file_path[:-4]
+        else:
+            decompressed_file_path = compressed_file_path + ".decompressed"
+
+    # Open the compressed file and read its contents
+    with bz2.open(compressed_file_path, "rb") as source:
+        # Open a new file to write the decompressed data
+        with open(decompressed_file_path, "wb") as dest:
+            dest.write(source.read())
+
+    # Remove the original compressed file if requested
+    if remove_original:
+        os.remove(compressed_file_path)
+        print(
+            f"Decompressed {compressed_file_path} to {decompressed_file_path} and removed the original file"
+        )
+    else:
+        print(f"Decompressed {compressed_file_path} to {decompressed_file_path}")
+
+    return decompressed_file_path
+
+
 class WyckoffDataset(InMemoryDataset):
     def __init__(
         self,
@@ -223,9 +261,27 @@ class WyckoffDataset(InMemoryDataset):
             return [f"wyckoff_data_{self.suffix}_debug.pt"]
         return [f"wyckoff_data_{self.suffix}_{self.split}.pt"]
 
+    @property
+    def download_name(self):
+        return self.raw_file_names[0] + ".bz2"
+
     def download(self):
-        url = self.base_url + self.raw_file_names[0]
+        zipped_file = self.download_name
+        url = self.base_url + zipped_file
         download_url(url, self.raw_dir)
+
+        zipped_file = osp.join(self.raw_dir, zipped_file)
+
+        if not compare_hash(zipped_file, self.hash_dict[self.split]):
+            raise ValueError(
+                f"Invalid hash for downloaded file: {self.suffix} {self.split} set. Please remove"
+            )
+
+        decompress_bz2_file(
+            zipped_file,
+            remove_original=True,
+            decompressed_file_path=osp.join(self.raw_dir, self.raw_file_names[0]),
+        )
 
     def wyckoff_data_to_graph(self, data_row: pd.Series) -> Data:
 
@@ -324,6 +380,11 @@ class WyckoffDataset(InMemoryDataset):
 @registry.register_dataset("wbm")
 class WBMDataset(WyckoffDataset):
     suffix = "wbm"
+    hash_dict = {
+        "train": "a0898053c5c124484d97030738e25e0567d33896c3be0a65b1bc22e701807ca6",
+        "val": "61afbb7ea3031b269a3ac5bcd5499078e1d83480b6a214d3185c4e4797382ec3",
+        "test": "f6aea31b07148f8d9e6f91e84d0a474aa830b4fa70d09f053e476f1822b2bae9",
+    }
 
     def __init__(self, split, num_elements, debug=False):
         super().__init__(osp.join("data", "wbm"), split, num_elements, debug=debug)
@@ -338,6 +399,11 @@ class WBMDataset(WyckoffDataset):
 @registry.register_dataset("mp20")
 class MP20Dataset(WyckoffDataset):
     suffix = "mp20"
+    hash_dict = {
+        "train": "aa9ccf4cf83a58e2aba3492e12f0eaf75bdf2946a7c90fa5bbeea94d731b721a",
+        "val": "6b73a81761a74ccf19eb066d4e2cc39a3aae9a0d149d61bd0f966fbf6584a230",
+        "test": "716a2dfef434e03e43ac94d195729d4fd8ee9677f3fd11918bb2895e6c8be13a",
+    }
 
     def __init__(self, split, num_elements, debug=False):
         super().__init__(osp.join("data", "mp20"), split, num_elements, debug=debug)
@@ -352,6 +418,11 @@ class MP20Dataset(WyckoffDataset):
 @registry.register_dataset("carbon24")
 class Carbon24Dataset(WyckoffDataset):
     suffix = "carbon24"
+    hash_dict = {
+        "train": "fcee223e4e99939a2600a710faae4e26c7bfcf087192735129ba53f85851e693",
+        "val": "8ce62b2977d9f172e26376255a0496ac281e6d113a572f6cd8d150ac22730442",
+        "test": "df5995fa0dce33b65ec1fe983e5b68e1fb2bacdcee882285052ac4ef08f38096",
+    }
 
     def __init__(self, split, num_elements, debug=False):
         super().__init__(osp.join("data", "carbon24"), split, num_elements, debug=debug)
