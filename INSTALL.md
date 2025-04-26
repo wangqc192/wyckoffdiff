@@ -13,13 +13,13 @@ Perform these steps to install WyckoffDiff and its dependencies.
     conda create -n wyckoffdiff python=3.12
     conda activate wyckoffdiff
     ```
+    
     **Alternatively**, if your system Python version is recent enough, you can instead use a Python venv:
     ```
     mkdir -p data/deps/venv
     python3 -m venv data/deps/venv
     source data/deps/venv/bin/activate
     ```
-    (To reactivate these environments at a later point, just execute the last command in either set of instructions above.)
 
 3. Install [NumPy](https://numpy.org/), [PyTorch](https://pytorch.org/), and [PyTorch Scatter](https://pypi.org/project/torch-scatter/) by
     ```
