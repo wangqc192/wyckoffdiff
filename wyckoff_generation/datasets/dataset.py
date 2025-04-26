@@ -274,7 +274,7 @@ class WyckoffDataset(InMemoryDataset):
 
         if not compare_hash(zipped_file, self.hash_dict[self.split]):
             raise ValueError(
-                f"Invalid hash for downloaded file: {self.suffix} {self.split} set. Please remove"
+                f"Invalid hash for downloaded file: {self.suffix} {self.split} set. To redownload, remove the file: {zipped_file}"
             )
 
         decompress_bz2_file(
