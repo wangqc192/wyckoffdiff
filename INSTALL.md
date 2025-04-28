@@ -16,7 +16,7 @@ Perform these steps to install WyckoffDiff and its dependencies.
 
     **Alternatively**, if your system Python version is recent enough, you can instead use a Python venv:
     ```
-    mkdir -p data/deps/venv
+    mkdir -p data/deps
     python3 -m venv data/deps/venv
     source data/deps/venv/bin/activate
     ```
