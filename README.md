@@ -3,6 +3,9 @@
 
 This is the offical public repository for the paper [_WyckoffDiff -- A Generative Diffusion Model for Crystal Symmetry_](https://arxiv.org/abs/2502.06485) by Filip Ekström Kelvinius, Oskar B. Andersson, Abhijith S. Parackal, Dong Qian, Rickard Armiento, and Fredrik Lindsten. See [Citation](#citation) for how to cite this work.
 
+## Data
+The code already supports the dataset used in the paper (WBM), in addition to MP20 and Carbon24. Download is automatic, and using the codebase **does not require any manual download**. Please see the [data README](data/README.md) for more information on the data.
+
 ## Installation
 See [INSTALL.md](INSTALL.md) for instructions on how to install required packages
 
