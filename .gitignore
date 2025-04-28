@@ -3,4 +3,7 @@ wyckoff_gen.egg-info
 *__pycache__
 checkpoints/
 logs/
-data/
+
+# data -- include the README but ignore everything else
+data/*
+!data/README.md
