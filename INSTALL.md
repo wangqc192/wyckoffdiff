@@ -13,7 +13,7 @@ Perform these steps to install WyckoffDiff and its dependencies.
     conda create -n wyckoffdiff python=3.12
     conda activate wyckoffdiff
     ```
-    
+
     **Alternatively**, if your system Python version is recent enough, you can instead use a Python venv:
     ```
     mkdir -p data/deps/venv
@@ -26,7 +26,7 @@ Perform these steps to install WyckoffDiff and its dependencies.
     pip install numpy==1.26.4 torch==2.3.0 torch-scatter -f https://data.pyg.org/whl/torch-2.3.0+{COMPUTE_PLATFORM}.html
     ```
     where `{COMPUTE_PLATFORM}` should be `cu118`, `cu121` or `cpu`.
-    For CUDA, the version of your installed driver can be seen in the output of `nvidia-smi`, and it may be a good idea to pick the highest version of 1.18 or 2.21 that is lower or equal to the version supported by the driver.
+    For CUDA, the version of your installed driver can be seen in the output of `nvidia-smi`, and it may be a good idea to pick the highest version of 1.18 or 1.21 that is lower or equal to the version supported by the driver.
 
 4. Install [Aviary](https://github.com/CompRhys/aviary) by
     ```
