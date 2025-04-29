@@ -13,7 +13,7 @@ See [INSTALL.md](INSTALL.md) for instructions on how to install required package
 ### Train
 To train a WyckoffDiff model on WBM, a minimal example is
 ```
-python main.py --mode train_d3pm --d3pm_transition [uniform/marginal/zeros_init] --logger [none/model_only/local_only/wandb]
+python main.py --mode train_d3pm --d3pm_transition [uniform/marginal/zeros_init] --logger [none/model_only/local_only/tensorboard/wandb]
 ```
 Warning: using logger ```none``` will not save any checkpoints (or anything else), but can be used for, e.g., debugging.
 
