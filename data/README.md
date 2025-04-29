@@ -25,8 +25,19 @@ Dataset from [Predicting stable crystalline compounds using chemical similarity]
   langid = {english},
 }
 
+@software{Riebesell_Matbench_Discovery_2023,
+author = {Riebesell, Janosh and Goodall, Rhys and Benner, Philipp and Chiang, Yuan and Deng, Bowen and Lee, Alpha and Jain, Anubhav and Persson, Kristin},
+doi = {10.48550/arXiv.2308.14920},
+license = {MIT},
+month = aug,
+title = {{Matbench Discovery}},
+url = {https://github.com/janosh/matbench-discovery},
+version = {1.0.0},
+year = {2023}
+}
+
 ```
-The original data can be found on [Materials Cloud](https://doi.org/10.24435/materialscloud:96-09) under a [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license. 
+The curated dataset can be obtained from [matbench-discovery](https://github.com/janosh/matbench-discovery/tree/main/data/wbm). The original data can be found on [Materials Cloud](https://doi.org/10.24435/materialscloud:96-09) under a [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license. 
 
 Our processed version of this dataset can be downloaded from
 * train: <https://public.openmaterialsdb.se/wyckoffdiff/data/wbm/raw/wbm_train.csv.bz2>
