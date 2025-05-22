@@ -1,6 +1,11 @@
-# This code has been modified from https://github.com/google-research/google-research/blob/master/d3pm/images/utils.py to work with PyTorch
 # coding=utf-8
-# Copyright 2024 The Google Research Authors.
+#
+# This file is a modified version of source code made available under the Apache 2.0 license by Google Research made available in their repository at https://github.com/google-research/google-research/blob/1d49f2c0d5506a6e11115726164d42f6b7b7b95a/d3pm/images/utils.py
+#
+# The primary purpose of the modifications is to make this code work with PyTorch.
+# Modifications Copyright (c) 2025 The High-Throughput Toolkit
+#
+# The original copyright header from the file from Google Research follows below:
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,7 +18,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import torch
 import torch.nn.functional as F
 

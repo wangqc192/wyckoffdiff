@@ -1,5 +1,11 @@
-# This code is heavily based on code from https://github.com/google-research/google-research/blob/master/d3pm/images/diffusion_categorical.py
 # coding=utf-8
+#
+# This file is a heavily modified version of source code made available under the Apache 2.0 license by Google Research made available in their repository at https://github.com/google-research/google-research/blob/8f818e8fc802c31571a89084d4c61922bf26483e/d3pm/images/diffusion_categorical.py
+#
+# Modifications Copyright (c) 2025 The High-Throughput Toolkit
+#
+# The original copyright header from the file from Google Research follows below:
+#
 # Copyright 2024 The Google Research Authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");

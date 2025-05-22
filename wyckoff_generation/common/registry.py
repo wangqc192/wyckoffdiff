@@ -1,6 +1,9 @@
 """
-This code was borrowed and modified from https://github.com/FAIR-Chem/fairchem/blob/main/src/fairchem/core/common/registry.py which is licensed under an MIT License
-See license text below:
+This file is based on code made available under the MIT license by FAIR Chemistry available from their repository as https://github.com/facebookresearch/fairchem/blob/dbaefaed40eee2844d033c78ccd2fe68976ebcb6/ocpmodels/common/registry.py
+
+Modifications Copyright (c) 2025 The High-Throughput Toolkit
+
+The original copyright header from the fairchem file follows below:
 
 MIT License
 

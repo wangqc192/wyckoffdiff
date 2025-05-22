@@ -1,7 +1,8 @@
 """
-The functions ``setup_imports``, ``_get_project_root``, and ``_import_local_file`` were borrowed and modified from
-https://github.com/facebookresearch/fairchem/blob/main/src/fairchem/core/common/utils.py, which is under an MIT License. See below
+Parts of this file, the functions ``setup_imports``, ``_get_project_root``, and ``_import_local_file`` , are based on code made available under the MIT license by FAIR Chemistry available from their repository as https://github.com/facebookresearch/fairchem/blob/dbaefaed40eee2844d033c78ccd2fe68976ebcb6/ocpmodels/common/utils.py
+Modifications Copyright (c) 2025 The High-Throughput Toolkit
 
+The original copyright header from the fairchem file follows below:
 MIT License
 
 Copyright (c) Meta, Inc. and its affiliates.
