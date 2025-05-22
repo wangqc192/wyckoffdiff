@@ -48,4 +48,4 @@ If you have used this code, please cite the WyckoffDiff paper
 ```
 
 ## License
-This code is licensed with a MIT License
+This code is licensed with a MIT License, but please note that [`wyckoff_generation/models/d3pm`](wyckoff_generation/models/d3pm) uses code from the official public D3PM implementation <https://github.com/google-research/google-research/tree/master/d3pm>, which is under and Apache 2.0 license. See [`wyckoff_generation/models/d3pm/README`](wyckoff_generation/models/d3pm/README)
