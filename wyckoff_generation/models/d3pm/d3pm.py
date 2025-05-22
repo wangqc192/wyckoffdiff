@@ -1,7 +1,7 @@
 # This code is heavily based on code from https://github.com/google-research/google-research/blob/master/d3pm/images/diffusion_categorical.py
 # coding=utf-8
 # Copyright 2024 The Google Research Authors.
-# Modifications Copyright 2025 The High Throughput Toolkit
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
