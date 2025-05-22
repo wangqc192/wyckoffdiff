@@ -1,3 +1,25 @@
+# coding=utf-8
+#
+# This file is a heavily modified version of source code made available under the Apache 2.0 license by Google Research made available in their repository at https://github.com/google-research/google-research/blob/8f818e8fc802c31571a89084d4c61922bf26483e/d3pm/images/diffusion_categorical.py
+#
+# Modifications Copyright (c) 2025 The High-Throughput Toolkit
+#
+# The original copyright header from the file from Google Research follows below:
+#
+# Copyright 2024 The Google Research Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 import numpy as np
 import torch
 import torch.nn as nn

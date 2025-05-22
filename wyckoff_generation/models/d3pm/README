@@ -1,0 +1,12 @@
+# D3PM implementation
+This code is an implementation of the D3PM model we used in our work. The code is based on code from the official implementation: <https://github.com/google-research/google-research/tree/master/d3pm>. That code is under an Apache 2.0 license, see [LICENSE.txt](LICENSE.txt). Please also consider citing the original D3PM paper:
+```
+@inproceedings{austin2021structured,
+    title={Structured Denoising Diffusion Models in Discrete State-Spaces},
+    author={Jacob Austin and Daniel D. Johnson and Jonathan Ho and Daniel Tarlow and Rianne van den Berg},
+    booktitle={Advances in Neural Information Processing Systems},
+    editor={A. Beygelzimer and Y. Dauphin and P. Liang and J. Wortman Vaughan},
+    year={2021},
+    url={https://openreview.net/forum?id=h7-XixPCAL}
+}
+```
